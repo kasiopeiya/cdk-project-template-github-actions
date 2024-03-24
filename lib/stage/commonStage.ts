@@ -1,0 +1,25 @@
+import { type Stack, Stage } from 'aws-cdk-lib'
+import { type Construct } from 'constructs'
+
+import { type Config } from '../../config'
+import { MainAppStack } from '../stack/mainAppStack'
+import { BaseStack } from '../stack/baseStack'
+
+export abstract class CommonStage extends Stage {
+  createStacks(scope: Construct, config: Config): Record<string, Stack> {
+    const prefix: string = config.prefix
+    const env = config.env
+
+    const baseStack = new BaseStack(scope, `${prefix}-base-stack`, { env })
+
+    const mainAppStack = new MainAppStack(scope, `${prefix}-lambda-stack`, {
+      env,
+      lambdaSrcDirPath: './resources/lambda/base'
+    })
+
+    return {
+      baseStack,
+      mainAppStack
+    }
+  }
+}

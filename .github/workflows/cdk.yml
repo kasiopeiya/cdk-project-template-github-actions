@@ -24,12 +24,14 @@ jobs:
           node-version: 18
       
       - name: Cache dependencies
+        id: node_modules_cache_id
         uses: actions/cache@v3
         with:
           path: '**/node_modules'
           key: node-modules-${{ hashFiles('**/package-lock.json') }}
       
       - name: Setup dependencies
+        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: npm ci
 
       - name: Build

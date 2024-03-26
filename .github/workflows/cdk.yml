@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - dev
   workflow_dispatch:
 jobs:
   build-test-deploy:
@@ -41,5 +42,6 @@ jobs:
         run: npm run test:fga
 
       - name: CDK Deploy
-        # if: contains(github.event_name, 'push')
-        run: npx cdk deploy "dev/*"
+        env: 
+          BRANCH_NAME: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
+        run: npx cdk deploy "$BRANCH_NAME/*"

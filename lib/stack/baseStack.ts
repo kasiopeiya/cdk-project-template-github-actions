@@ -13,7 +13,7 @@ export class BaseStack extends Stack {
     /*
     * S3
     -------------------------------------------------------------------------- */
-    new MyS3Bucket(this, 'Bucket1', {})
+    new MyS3Bucket(this, 'Bucket3', {})
     new MyS3Bucket(this, 'Bucket2', {})
   }
 }

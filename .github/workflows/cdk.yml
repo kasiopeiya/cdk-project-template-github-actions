@@ -1,4 +1,4 @@
-name: cdk-github-actions
+name: 'cdk-deploy-actions'
 on:
   push:
     branches:

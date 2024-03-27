@@ -10,6 +10,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+      pull-requests: write
     steps:
       - uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -28,7 +29,5 @@ jobs:
         run: npm ci
 
       - uses: tsuba3/cdk_plan_action@main
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           aws-region: 'ap-northeast-1'

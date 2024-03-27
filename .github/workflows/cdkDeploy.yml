@@ -37,7 +37,7 @@ jobs:
         run: npm ci
 
       - name: CDK Diff Check
-        run: npx cdk diff
+        run: npx cdk diff "$BRANCH_NAME/*"
 
       - name: FineGrained Assertions tests
         run: npm run test:fga

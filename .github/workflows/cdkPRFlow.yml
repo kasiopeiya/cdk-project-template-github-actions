@@ -33,3 +33,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           aws-region: 'ap-northeast-1'
+          cdk-command: 'npx cdk diff prod/*'

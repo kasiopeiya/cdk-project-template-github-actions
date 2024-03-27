@@ -12,6 +12,8 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    env: 
+      BRANCH_NAME: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
     steps:
       - uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -43,6 +45,4 @@ jobs:
         run: npm run test:fga
 
       - name: CDK Deploy
-        env: 
-          BRANCH_NAME: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
         run: npx cdk deploy "$BRANCH_NAME/*"

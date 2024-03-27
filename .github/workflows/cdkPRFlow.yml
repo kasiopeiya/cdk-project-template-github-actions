@@ -2,6 +2,7 @@ name: 'cdk-pull-request-actions'
 run-name: ${{ github.actor }} is running workflow
 on:
   pull_request:
+    types: [opened]
     branches:
       - main
 jobs:
@@ -11,6 +12,8 @@ jobs:
       id-token: write
       contents: read
       pull-requests: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -28,9 +31,8 @@ jobs:
         if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: npm ci
 
-      - uses: tsuba3/cdk_plan_action@main
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          aws-region: 'ap-northeast-1'
-          cdk-command: 'npx cdk diff prod/*'
+      - run: |
+          cat << EOF > comments
+            npx cdk diff prod/*
+          EOF
+          gh pr comment -F ./comments ${{ github.event.pull_request.html_url }}

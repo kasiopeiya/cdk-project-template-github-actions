@@ -1,4 +1,3 @@
-// プルリクエストのコメントにcdk diffの結果を追加する
 name: cdk-pull-request-actions
 run-name: ${{ github.actor }} is running ${{ github.workflow }} workflow
 on:

@@ -1,4 +1,5 @@
 name: 'cdk-deploy-actions'
+run-name: ${{ github.actor }} is running workflow
 on:
   push:
     branches:

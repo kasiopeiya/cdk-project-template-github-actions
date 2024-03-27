@@ -13,7 +13,7 @@ jobs:
       id-token: write
       contents: read
     env: 
-      BRANCH_NAME: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
+      AWS_ACCOUNT_NAME: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
     steps:
       - uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -39,10 +39,10 @@ jobs:
         run: npm ci
 
       - name: CDK Diff Check
-        run: npx cdk diff "$BRANCH_NAME/*"
+        run: npx cdk diff "$AWS_ACCOUNT_NAME/*"
 
       - name: FineGrained Assertions tests
         run: npm run test:fga
 
       - name: CDK Deploy
-        run: npx cdk deploy "$BRANCH_NAME/*"
+        run: npx cdk deploy "$AWS_ACCOUNT_NAME/*"

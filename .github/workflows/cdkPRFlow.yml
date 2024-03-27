@@ -1,10 +1,12 @@
+// プルリクエストのコメントにcdk diffの結果を追加する
 name: cdk-pull-request-actions
-run-name: ${{ github.actor }} is running ${{ github.action }} workflow
+run-name: ${{ github.actor }} is running ${{ github.workflow }} workflow
 on:
   pull_request:
     types: [opened]
     branches:
       - main
+      - dev
 jobs:
   cdk-diff:
     runs-on: ubuntu-latest
@@ -14,6 +16,7 @@ jobs:
       pull-requests: write
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      AWS_ACCOUNT_NAME: ${{ github.base_ref == 'dev' && 'prod' || 'dev' }}
     steps:
       - uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -31,6 +34,8 @@ jobs:
         if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: npm ci
 
-      - run: |
-          npx cdk diff prod/* > comments
+      - name: Add the results of cdk diff to the PR comment
+        run: |
+          echo $${{ github.base_ref }}
+          npx cdk diff "AWS_ACCOUNT_NAME/*"" > comments
           gh pr comment -F ./comments ${{ github.event.pull_request.html_url }}

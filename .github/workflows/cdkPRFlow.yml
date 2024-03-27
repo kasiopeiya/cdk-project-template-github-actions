@@ -1,5 +1,5 @@
 name: 'cdk-pull-request-actions'
-run-name: ${{ github.actor }} is running workflow
+run-name: ${{ github.actor }} is running ${{ github.action }} workflow
 on:
   pull_request:
     types: [opened]
@@ -32,7 +32,5 @@ jobs:
         run: npm ci
 
       - run: |
-          cat << EOF > comments
-            npx cdk diff prod/*
-          EOF
+          npx cdk diff prod/* > commnets
           gh pr comment -F ./comments ${{ github.event.pull_request.html_url }}

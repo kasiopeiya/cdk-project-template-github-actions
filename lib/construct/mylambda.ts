@@ -9,6 +9,10 @@ interface MyNodejsFunctionProps {
   logs?: LogGroupProps
 }
 
+/**
+ * 自作Lambda関数Construct
+ * 関数削除後にCloudWatch Logsが残らないようにしている
+ */
 export class MyNodejsFunction extends Construct {
   public readonly func: NodejsFunction
   public readonly logGroup: LogGroup
@@ -18,16 +22,16 @@ export class MyNodejsFunction extends Construct {
 
     // Lambda Function
     this.func = new NodejsFunction(this, 'LambdaFunc', {
-      ...props.lambda,
       runtime: lambda_.Runtime.NODEJS_20_X,
-      architecture: lambda_.Architecture.ARM_64
+      architecture: lambda_.Architecture.ARM_64,
+      ...props.lambda
     })
 
     // CloudWatch Logs: LogGroup
     this.logGroup = new LogGroup(this, 'LogGroup', {
-      ...props.logs,
       logGroupName: `/aws/lambda/${this.func.functionName}`,
-      removalPolicy: props.logs?.removalPolicy ?? RemovalPolicy.DESTROY
+      removalPolicy: props.logs?.removalPolicy ?? RemovalPolicy.DESTROY,
+      ...props.logs
     })
   }
 }

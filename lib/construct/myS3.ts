@@ -10,11 +10,11 @@ export class MyS3Bucket extends Construct {
 
     // S3 Bucket
     this.bucket = new s3.Bucket(this, 'Bucket', {
-      ...props,
       autoDeleteObjects: props.autoDeleteObjects ?? true,
       removalPolicy: props.removalPolicy ?? RemovalPolicy.DESTROY,
       encryption: props.encryption ?? s3.BucketEncryption.S3_MANAGED,
-      enforceSSL: props.enforceSSL ?? true
+      enforceSSL: props.enforceSSL ?? true,
+      ...props
     })
   }
 }

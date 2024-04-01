@@ -2,9 +2,9 @@ import { Stack, type StageProps, type IAspect, Aspects } from 'aws-cdk-lib'
 import { type IConstruct, type Construct } from 'constructs'
 
 import { prodConfig } from '../../config'
-import { CommonStage } from './commonStage'
+import { StageBase } from './stageBase'
 
-export class ProdStage extends CommonStage {
+export class ProdStage extends StageBase {
   public readonly stacks: Record<string, Stack>
   constructor(scope: Construct, id: string, props: StageProps) {
     super(scope, id, props)
@@ -20,7 +20,7 @@ export class ProdStage extends CommonStage {
     // 各環境にのみデプロイするスタックを生成
     // const hogeStack = new HogeStack(this, 'HogeStack')
     return {
-      ...super.createStacks(this, prodConfig)
+      ...super.createCommonStacks(this, prodConfig)
       // hogeStack
     }
   }

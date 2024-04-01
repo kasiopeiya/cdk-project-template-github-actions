@@ -35,5 +35,5 @@ jobs:
 
       - name: Add the results of cdk diff to the PR comment
         run: |
-          npx cdk diff "$AWS_ACCOUNT_NAME/*" > comments
+          npx cdk diff -q --no-change-set "$AWS_ACCOUNT_NAME/*" > comments
           gh pr comment -F ./comments ${{ github.event.pull_request.html_url }}

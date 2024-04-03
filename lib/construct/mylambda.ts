@@ -30,17 +30,17 @@ export class MyNodejsFunction extends Construct {
 
     // Lambda Function
     this.func = new NodejsFunction(this, 'LambdaFunc', {
-      runtime: lambda_.Runtime.NODEJS_20_X,
-      architecture: lambda_.Architecture.ARM_64,
-      ...props.lambda
+      ...props.lambda,
+      runtime: props.lambda.runtime ?? lambda_.Runtime.NODEJS_20_X,
+      architecture: props.lambda.architecture ?? lambda_.Architecture.ARM_64
     })
     this.func.addLayers(layer)
 
     // CloudWatch Logs: LogGroup
     this.logGroup = new LogGroup(this, 'LogGroup', {
+      ...props.logs,
       logGroupName: `/aws/lambda/${this.func.functionName}`,
-      removalPolicy: props.logs?.removalPolicy ?? RemovalPolicy.DESTROY,
-      ...props.logs
+      removalPolicy: props.logs?.removalPolicy ?? RemovalPolicy.DESTROY
     })
   }
 }

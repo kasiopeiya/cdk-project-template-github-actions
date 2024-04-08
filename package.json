@@ -15,7 +15,8 @@
     "format": "prettier --write '*/**/*.ts'",
     "lint": "eslint '*/**/*.ts' --max-warnings 0 --fix",
     "lint-fix": "prettier --write '*/**/*.ts' && eslint '*/**/*.ts' --max-warnings 0",
-    "md-lint-fix": "prettier --write '*/**/*.md' && markdownlint-cli2 '*/**/*.md'"
+    "md-lint-fix": "prettier --write '*/**/*.md' && markdownlint-cli2 '*/**/*.md'",
+    "release": "standard-version"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",

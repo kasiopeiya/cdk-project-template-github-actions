@@ -4,15 +4,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.1.5](https://github.com/kasiopeiya/cdk-project-template-github-actions/compare/v0.1.4...v0.1.5) (2024-04-08)
 
-
 ### Bug Fixes
 
-* **.versionrc.js:** 誤記修正 ([73af5df](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/73af5df1366035545f917f64150a761ad33127d4))
-* **.versionrc:** ファイル形式変更 ([6f31a9f](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/6f31a9f873cfc57cc76cfe0e8e03b361ddbc8916))
+- **.versionrc.js:** 誤記修正 ([73af5df](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/73af5df1366035545f917f64150a761ad33127d4))
+- **.versionrc:** ファイル形式変更 ([6f31a9f](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/6f31a9f873cfc57cc76cfe0e8e03b361ddbc8916))
 
-
-* hoge.md削除 ([b968005](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/b96800557bb79a242231c8438687c8df720b96b7))
-* hoge.md追加 ([fa50788](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/fa507886635f8e15e5375a2631e412de703b0fd2))
+- hoge.md削除 ([b968005](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/b96800557bb79a242231c8438687c8df720b96b7))
+- hoge.md追加 ([fa50788](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/fa507886635f8e15e5375a2631e412de703b0fd2))
 
 ### [0.1.4](https://github.com/kasiopeiya/cdk-project-template-github-actions/compare/v0.1.3...v0.1.4) (2024-04-08)
 

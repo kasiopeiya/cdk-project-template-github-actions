@@ -1,4 +1,4 @@
-odule.exports = {
+module.exports = {
     preset: require.resolve('conventional-changelog-conventionalcommits'),
     types: [
         { type: 'feat', section: 'Features' },

@@ -18,6 +18,8 @@
     "md-lint-fix": "prettier --write '*/**/*.md' && markdownlint-cli2 '*/**/*.md'"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
     "@types/jest": "^29.5.12",
     "@types/node": "20.12.4",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
@@ -46,5 +48,10 @@
   "lint-staged": {
     "*.{ts,tsx}": "npm run lint-fix",
     "./docs/*.{md}": "npm run md-lint-fix"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }

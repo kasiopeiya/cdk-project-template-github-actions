@@ -2,6 +2,7 @@
 !jest.config.js
 !.eslintrc.js
 !.prettierrc.js
+!.versionrc.js
 *.d.ts
 node_modules
 tmp

@@ -4,15 +4,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.1.6](https://github.com/kasiopeiya/cdk-project-template-github-actions/compare/v0.1.5...v0.1.6) (2024-04-08)
 
-
 ### Bug Fixes
 
-* **versionrc:** 記載ミス修正 ([7e7d133](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/7e7d133c40c79c332d4a6f66cfb935f9aae5a639))
-
+- **versionrc:** 記載ミス修正 ([7e7d133](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/7e7d133c40c79c332d4a6f66cfb935f9aae5a639))
 
 ### Document Changes
 
-* hoge.md削除 ([f6ae48f](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/f6ae48f645e1f78751844c0a5080e4f6227d25d3))
+- hoge.md削除 ([f6ae48f](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/f6ae48f645e1f78751844c0a5080e4f6227d25d3))
 
 ### [0.1.5](https://github.com/kasiopeiya/cdk-project-template-github-actions/compare/v0.1.4...v0.1.5) (2024-04-08)
 

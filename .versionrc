@@ -4,7 +4,7 @@
         {"type":"fix","section":"Bug Fixes"},
         {"type":"test","section":"Tests", "hidden": true},
         {"type":"chore","section":"Chores", "hidden": true},
-        {"type":"docs","Document Changes":false},
-        {"type":"refactor","Refactoring":true}
+        {"type":"docs","section":"Document Changes","hidden":false},
+        {"type":"refactor","section":"Refactoring","hidden":true}
     ]
   }

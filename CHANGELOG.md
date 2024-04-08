@@ -4,10 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.1.3](https://github.com/kasiopeiya/cdk-project-template-github-actions/compare/v0.1.2...v0.1.3) (2024-04-08)
 
-
 ### Features
 
-* testコミット ([3a73012](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/3a730127d2b5a87f4a71e5d15619f06f6ae62b87))
+- testコミット ([3a73012](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/3a730127d2b5a87f4a71e5d15619f06f6ae62b87))
 
 ### [0.1.2](https://github.com/kasiopeiya/cdk-project-template-github-actions/compare/v0.1.1...v0.1.2) (2024-04-08)
 

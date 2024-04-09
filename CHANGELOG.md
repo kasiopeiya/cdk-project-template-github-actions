@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/kasiopeiya/cdk-project-template-github-actions/compare/v0.1.6...v0.1.7) (2024-04-09)
+
+
+### CI
+
+* .prettierignoreと.eslintignore追加 ([3ecb66b](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/3ecb66bf591bcc388628b15e8d2d5184a902a51b))
+* **.versionrc:** changlogの出力設定変更 ([b936590](https://github.com/kasiopeiya/cdk-project-template-github-actions/commit/b93659042f841cff3ce7217551ceaa7e60cd2217))
+
 ### [0.1.6](https://github.com/kasiopeiya/cdk-project-template-github-actions/compare/v0.1.5...v0.1.6) (2024-04-08)
 
 ### Bug Fixes

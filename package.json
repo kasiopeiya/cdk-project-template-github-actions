@@ -1,6 +1,6 @@
 {
   "name": "infra-repo",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "bin": {
     "infra-repo": "bin/infra-repo.js"
   },

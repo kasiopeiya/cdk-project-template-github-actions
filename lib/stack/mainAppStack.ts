@@ -7,6 +7,10 @@ interface MainAppStackProps extends StackProps {
   lambdaSrcDirPath: string
 }
 
+/**
+ * メインアプリのスタック
+ * ステートレスなものを中心に構築する
+ */
 export class MainAppStack extends Stack {
   constructor(scope: Construct, id: string, props: MainAppStackProps) {
     super(scope, id, props)

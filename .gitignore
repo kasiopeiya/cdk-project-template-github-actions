@@ -2,6 +2,7 @@
 !jest.config.js
 !.eslintrc.js
 !.prettierrc.js
+!.versionrc.js
 *.d.ts
 node_modules
 tmp
@@ -11,3 +12,4 @@ tmp
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+__snapshots__

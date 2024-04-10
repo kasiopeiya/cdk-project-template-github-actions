@@ -5,8 +5,8 @@ import { type Config } from '../../config'
 import { MainAppStack } from '../stack/mainAppStack'
 import { BaseStack } from '../stack/baseStack'
 
-export abstract class CommonStage extends Stage {
-  createStacks(scope: Construct, config: Config): Record<string, Stack> {
+export abstract class StageBase extends Stage {
+  createCommonStacks(scope: Construct, config: Config): Record<string, Stack> {
     const prefix: string = config.prefix
     const env = config.env
 

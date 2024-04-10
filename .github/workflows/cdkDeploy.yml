@@ -1,5 +1,5 @@
-name: 'cdk-deploy-actions'
-run-name: ${{ github.actor }} is running workflow
+name: cdk-deploy-actions
+run-name: ${{ github.actor }} is running ${{ github.workflow }} workflow
 on:
   push:
     branches:
@@ -12,6 +12,8 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    env: 
+      AWS_ACCOUNT_NAME: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
     steps:
       - uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -37,12 +39,10 @@ jobs:
         run: npm ci
 
       - name: CDK Diff Check
-        run: npx cdk diff
+        run: npx cdk diff "$AWS_ACCOUNT_NAME/*"
 
       - name: FineGrained Assertions tests
         run: npm run test:fga
 
       - name: CDK Deploy
-        env: 
-          BRANCH_NAME: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
-        run: npx cdk deploy "$BRANCH_NAME/*"
+        run: npx cdk deploy "$AWS_ACCOUNT_NAME/*"

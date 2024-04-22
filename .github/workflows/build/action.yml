@@ -20,4 +20,4 @@ runs:
 
     - name: FineGrained Assertions tests
       run: npm run test:fga
-      shell:
+      shell: bash

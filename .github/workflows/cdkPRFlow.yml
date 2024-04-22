@@ -26,7 +26,7 @@ jobs:
           elif [[ ${{ github.ref }} == 'refs/heads/main' ]]; then
             echo "ROLE_TO_ASSUME=arn:aws:iam::${{ env.PROD_ACCOUNT_ID }}:role/ghac-cdk-deploy-role" >> $GITHUB_ENV
           fi
-
+      - run: echo ${{ env.ROLE_TO_ASSUME }}
       - uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ env.ROLE_TO_ASSUME }}

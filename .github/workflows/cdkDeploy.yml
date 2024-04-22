@@ -12,37 +12,29 @@ jobs:
     permissions:
       id-token: write
       contents: read
-    env: 
+    env:
       AWS_ACCOUNT_NAME: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
     steps:
+      - name: Set AWS Account ID
+        run: |
+          if [[ ${{ github.ref }} == 'refs/heads/dev' ]]; then
+            echo "ROLE_TO_ASSUME=arn:aws:iam::${{ secrets.DEV_ACCOUNT_ID }}:role/ghac-cdk-deploy-role" >> $GITHUB_ENV
+          elif [[ ${{ github.ref }} == 'refs/heads/main' ]]; then
+            echo "ROLE_TO_ASSUME=arn:aws:iam::${{ secrets.PROD_ACCOUNT_ID }}:role/ghac-cdk-deploy-role" >> $GITHUB_ENV
+          fi
+
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::533267250677:role/ghac-cdk-deploy-role
+          role-to-assume: ${{ env.ROLE_TO_ASSUME }}
           aws-region: ap-northeast-1
 
       - uses: actions/checkout@v4
 
-      - name: Use Node.js 18.19.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.19.x
-      
-      - name: Cache dependencies
-        id: node_modules_cache_id
-        uses: actions/cache@v4
-        with:
-          path: '**/node_modules'
-          key: node-modules-${{ hashFiles('**/package-lock.json') }}
-      
-      - name: Setup dependencies
-        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
-        run: npm ci
+      - name: build
+        uses: ./.github/workflows/build
 
       - name: CDK Diff Check
         run: npx cdk diff "$AWS_ACCOUNT_NAME/*"
-
-      - name: FineGrained Assertions tests
-        run: npm run test:fga
 
       - name: CDK Deploy
         run: npx cdk deploy "$AWS_ACCOUNT_NAME/*"

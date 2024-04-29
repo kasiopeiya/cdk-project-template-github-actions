@@ -18,6 +18,10 @@ runs:
       run: npm ci
       shell: bash
 
+    - name:  Snapshot tests
+      run: npm run test:snap
+      shell: bash
+
     - name: FineGrained Assertions tests
       run: npm run test:fga
       shell: bash

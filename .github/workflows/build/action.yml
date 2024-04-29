@@ -18,6 +18,10 @@ runs:
       run: npm ci
       shell: bash
 
+    - name:  depcheck
+      run: npm run depcheck
+      shell: bash
+
     - name:  Snapshot tests
       run: npm run test:snap
       shell: bash

@@ -16,7 +16,8 @@
     "lint": "eslint '*/**/*.ts' --max-warnings 0 --fix",
     "lint-fix": "prettier --write '*/**/*.ts' && eslint '*/**/*.ts' --max-warnings 0",
     "md-lint-fix": "prettier --write '*/**/*.md' && markdownlint-cli2 '*/**/*.md'",
-    "release": "standard-version"
+    "release": "standard-version",
+    "depcheck": "depcheck"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",
@@ -25,6 +26,7 @@
     "@types/node": "20.12.4",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "aws-cdk": "2.135.0",
+    "depcheck": "^1.4.7",
     "esbuild": "^0.20.2",
     "eslint": "^8.57.0",
     "eslint-config-standard-with-typescript": "^43.0.1",

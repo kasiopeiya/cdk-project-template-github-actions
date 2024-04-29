@@ -13,4 +13,4 @@ pull_request_rules:
       - -merged
       - -closed
       - author=dependabot[bot]
-      - status-success=build-actions workflow
+      - status-success=build-test

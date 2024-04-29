@@ -4,7 +4,7 @@ on:
   pull_request:
   workflow_dispatch:
 jobs:
-  build-test-deploy:
+  build-test:
     runs-on: ubuntu-latest
     permissions:
       contents: read

@@ -1,4 +1,4 @@
-name: Create Release
+name: create-release
 on:
   workflow_dispatch:
 
@@ -10,7 +10,7 @@ jobs:
 
       - name: Get latest tag
         id: get-latest-tag
-        run: echo "::set-output name=latest_tag::$(git describe --tags --abbrev=0)"
+        run: echo "LATEST_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 
       - name: Create Release
         id: create-release
@@ -18,8 +18,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: '${{ steps.get-latest-tag.outputs.latest_tag }}'
-          release_name: 'Release ${{ steps.get-latest-tag.outputs.latest_tag }}'
+          tag_name: '${{ env.LATEST_TAG }}'
+          release_name: 'Release ${{ env.LATEST_TAG }}'
           body: 'Please see [CHANGELOG](https://github.com/kasiopeiya/cdk-project-template-github-actions/blob/main/CHANGELOG.md) for details.'
           draft: false
           prerelease: false

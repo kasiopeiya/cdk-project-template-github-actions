@@ -8,15 +8,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Get tags
-        id: get-tags
-        run: |
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+      # - name: Get tags
+      #   id: get-tags
+      #   run: |
+      #     git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
       - name: Get latest tag
         id: get-latest-tag
         run: |
-          echo "LATEST_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+          echo "LATEST_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
       - name: Create Release
         id: create-release

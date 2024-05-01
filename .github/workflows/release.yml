@@ -11,6 +11,7 @@ jobs:
       - name: Get latest tag
         id: get-latest-tag
         run: |
+          ls -al
           git describe --tags --abbrev=0
           echo "LATEST_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
 

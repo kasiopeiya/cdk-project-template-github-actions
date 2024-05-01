@@ -1,6 +1,10 @@
 name: create-release
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: The version to tag the release with, e.g., 1.2.0, 1.2.1-alpha.1
+        required: true
 
 jobs:
   create-release:
@@ -16,7 +20,7 @@ jobs:
       - name: Get latest tag
         id: get-latest-tag
         run: |
-          echo "LATEST_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+          echo "LATEST_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
       - name: Create Release
         id: create-release
@@ -24,8 +28,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: '${{ env.LATEST_TAG }}'
-          release_name: 'Release ${{ env.LATEST_TAG }}'
+          tag_name: '${{ github.event.inputs.version }}'
+          release_name: 'Release ${{ github.event.inputs.version }}'
           body: 'Please see [CHANGELOG](https://github.com/kasiopeiya/cdk-project-template-github-actions/blob/main/CHANGELOG.md) for details.'
           draft: false
           prerelease: false

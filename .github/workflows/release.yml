@@ -34,7 +34,7 @@ jobs:
       - name: Create Asset
         run: |
           rm -rf .git .github .vscode .husky
-          zip slim-artifact ./
+          zip -r slim-artifact.zip ./
 
       - name: Upload Release Asset
         id: upload-release-asset

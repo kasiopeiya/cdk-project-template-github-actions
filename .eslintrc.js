@@ -28,6 +28,10 @@ module.exports = {
     "@typescript-eslint/indent": "off",
   },
   ignorePatterns: [
-    "**/tmp/**", "*.d.ts"
+    "**/tmp/**",
+    "**/node_modules/**",
+    "**/cdk.out/**",
+    "*.d.ts",
+    "*.js"
   ]
 };

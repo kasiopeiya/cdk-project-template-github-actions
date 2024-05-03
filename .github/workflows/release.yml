@@ -35,7 +35,7 @@ jobs:
         run: |
           rm -rf .git docs test/dev/__snapshots__ test/prod/__snapshots__
           echo "" > CHANGELOG.md
-          ezho "" > README.md
+          echo "" > README.md
           zip -r slim-template.zip ./
 
       - name: Upload Release Asset

@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/kasiopeiya/cdk-project-template/compare/v0.1.7...v0.1.8) (2024-05-03)
+
+
+### Bug Fixes
+
+* .mergify.ymlの重複削除 ([11a9667](https://github.com/kasiopeiya/cdk-project-template/commit/11a96671a14c8af484734f1307f0fc164f33b78d))
+* **extensions.json:** ファイル名修正 ([1c7c975](https://github.com/kasiopeiya/cdk-project-template/commit/1c7c975f5ec73765d844c8641d8351df8f4008b1))
+* トリガーを修正 ([c7f37da](https://github.com/kasiopeiya/cdk-project-template/commit/c7f37da37e1312be1ba18231566ca7bd3484a22b))
+
+
+### CI
+
+* **.mergify.yml:** マージルール追加 ([f0c15a4](https://github.com/kasiopeiya/cdk-project-template/commit/f0c15a454620e08c632d6be0752155b967416868))
+* actionにsnapshotテスト追加 ([f68f72e](https://github.com/kasiopeiya/cdk-project-template/commit/f68f72ec5479f3cdb526545aad201967d2270e49))
+* buildのみアクション追加 ([6128063](https://github.com/kasiopeiya/cdk-project-template/commit/6128063b5dcff3344a626c8bd1ae63e66c39dfa0))
+* depcheck追加 ([1b97667](https://github.com/kasiopeiya/cdk-project-template/commit/1b97667b546f60fb2d7978429e9f639ebfef1551))
+* mergify設定ファイル追加 ([3b537fe](https://github.com/kasiopeiya/cdk-project-template/commit/3b537fef20d3e0ca5e223137f3632b8a4fbd4717))
+* **release.yml:** release作成workflow追加 ([32f4bd0](https://github.com/kasiopeiya/cdk-project-template/commit/32f4bd079d2b4f4fc9b09d178b822ad1ea33ddc5))
+* ビルドにformat, lint, synthを追加 ([5dd8dd0](https://github.com/kasiopeiya/cdk-project-template/commit/5dd8dd095ccff84900d2f41702542f016587c0fc))
+
 ### [0.1.7](https://github.com/kasiopeiya/cdk-project-template-github-actions/compare/v0.1.6...v0.1.7) (2024-04-09)
 
 

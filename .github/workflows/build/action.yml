@@ -22,6 +22,18 @@ runs:
       run: npm run depcheck
       shell: bash
 
+    - name:  Check format
+      run: npm run format:ci
+      shell: bash
+
+    - name:  Lint
+      run: npm run lint:ci
+      shell: bash
+
+    - name:  CDK Synth
+      run: npx cdk synth
+      shell: bash
+
     - name:  Snapshot tests
       run: npm run test:snap
       shell: bash

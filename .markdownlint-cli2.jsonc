@@ -6,5 +6,5 @@
         "line-length": false, // MD013: １行80文字以上を許可
         "no-bare-urls": false // MD034: URL直接貼り付け許可
     },
-    "ignores": [".git", "node_modules", ".husky", ".github"]
+    "ignores": [".git", "node_modules", ".husky", ".github", "CHANGELOG.md"]
 }

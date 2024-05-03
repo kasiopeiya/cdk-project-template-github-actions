@@ -10,7 +10,7 @@ export interface Config {
 
 export const devConfig: Config = {
     env: {
-        account: process.env.DEPLOY_ACCOUNT_ID,
+        account: process.env.DEV_ACCOUNT_ID,
         region: 'ap-northeast-1'
     },
     prefix: 'kasio-dev',
@@ -20,7 +20,7 @@ export const devConfig: Config = {
 
 export const prodConfig: Config = {
     env: {
-        account: process.env.DEPLOY_ACCOUNT_ID,
+        account: process.env.PROD_ACCOUNT_ID,
         region: 'ap-northeast-1'
     },
     prefix: 'kasio-prod',

@@ -5,5 +5,5 @@
         "no-inline-html": false, // MD033: HTML記述を許容
         "line-length": false // MD013: １行80文字以上を許可
     },
-    "ignores": [".git", "node_modules", ".husky"]
+    "ignores": [".git", "node_modules", ".husky", ".github"]
 }

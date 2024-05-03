@@ -33,8 +33,10 @@ jobs:
 
       - name: Create Asset
         run: |
-          rm -rf .git .github .vscode .husky
-          zip -r slim-artifact.zip ./
+          rm -rf .git docs test/dev/__snapshots__ test/prod/__snapshots__
+          echo "" > CHANGELOG.md
+          ezho "" > README.md
+          zip -r slim-template.zip ./
 
       - name: Upload Release Asset
         id: upload-release-asset
@@ -43,6 +45,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: ./slim-artifact.zip
-          asset_name: slim-artifact.zip
+          asset_path: ./slim-template.zip
+          asset_name: slim-template.zip
           asset_content_type: application/zip

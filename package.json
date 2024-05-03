@@ -18,7 +18,7 @@
     "lint:ci": "eslint '*/**/*.ts' --max-warnings 0",
     "lint-fix": "prettier --write '*/**/*.ts' && eslint '*/**/*.ts' --max-warnings 0",
     "md-lint-fix": "prettier --write '*/**/*.md' && markdownlint-cli2 '*/**/*.md'",
-    "release": "standard-version",
+    "release": "standard-version && git push --follow-tags",
     "depcheck": "depcheck"
   },
   "devDependencies": {
